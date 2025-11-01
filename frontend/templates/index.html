@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ClimApp</title>
+    <!-- Archivo css para estilo de la app -->
+    <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body>
+    <div class="contenedor">
+        <header class="cabecera">
+            <h1>🌤️ ClimApp</h1>
+            <p class="subtitulo">Consulta el clima en cualquier ciudad del mundo</p>
+        </header>
+
+        <!-- Contenido principal de la app -->
+        <main class="contenido-principal">
+            <form class="formulario-busqueda" id="formularioClima">
+                <div class="grupo-entrada">
+                    <input 
+                        type="text" 
+                        id="entradaCiudad" 
+                        placeholder="Ingresa una ciudad..."
+                        required
+                        aria-label="Nombre de la ciudad"
+                    >
+                    <button type="submit" class="boton-buscar">
+                        <span class="texto-boton">Buscar Clima</span>
+                        <span class="icono-boton">🔍</span>
+                    </button>
+                </div>
+            </form>
+
+            <!-- Animación de búsqueda de la información -->
+            <div class="cargando" id="cargando">
+                <div class="animacion-carga"></div>
+                <p>Buscando información del clima...</p>
+            </div>
+
+            <!-- Mensaje de error para los diferentes casos -->
+            <div class="mensaje-error" id="mensajeError">
+                <p id="textoError"></p>
+            </div>
+
+            <!-- Recuadro de información de las ciudades -->
+            <div class="tarjeta-clima" id="tarjetaClima">
+                <div class="informacion-principal">
+                    <div class="nombre-ciudad">
+                        <span class="icono-ubicacion">📍</span>
+                        <h2 id="nombreCiudad">-</h2>
+                    </div>
+                    <div class="temperatura-actual">
+                        <span id="temperatura">-°C</span>
+                    </div>
+                    <div class="descripcion-clima">
+                        <p id="descripcionClima">-</p>
+                    </div>
+                </div>
+
+                <!-- Detalles del clima en la ciudad escogida -->
+                <div class="detalles-clima">
+                    <div class="item-detalle">
+                        <div class="etiqueta-detalle">Sensación térmica</div>
+                        <div class="valor-detalle" id="sensacionTermica">-°C</div>
+                    </div>
+                    <div class="item-detalle">
+                        <div class="etiqueta-detalle">Humedad</div>
+                        <div class="valor-detalle" id="humedad">-%</div>
+                    </div>
+                    <div class="item-detalle">
+                        <div class="etiqueta-detalle">Presión atmosférica</div>
+                        <div class="valor-detalle" id="presion">- hPa</div>
+                    </div>
+                    <div class="item-detalle">
+                        <div class="etiqueta-detalle">Velocidad del viento</div>
+                        <div class="valor-detalle" id="velocidadViento">- m/s</div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Pie de página con indicaciones de donde se sacó la información -->
+        <footer class="pie-pagina">
+            <p>Datos proporcionados por OpenWeatherMap</p>
+        </footer>
+    </div>
+
+    <!-- Archivo js para animaciones y conexión con la app FastAPI -->
+    <script src="/static/js/script.js"></script>
+</body>
+</html>
